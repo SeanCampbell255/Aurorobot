@@ -19,17 +19,5 @@ client.on('message', message => {
     }
 });
 
-//NEVER COMMIT WITH THE TOKEN IN HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//NEVER COMMIT WITH THE TOKEN IN HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//NEVER COMMIT WITH THE TOKEN IN HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//NEVER COMMIT WITH THE TOKEN IN HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//NEVER COMMIT WITH THE TOKEN IN HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//NEVER COMMIT WITH THE TOKEN IN HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 //gets the token from config, logs bot into Discord
 client.login(token);
-//NEVER COMMIT WITH THE TOKEN IN HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//NEVER COMMIT WITH THE TOKEN IN HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//NEVER COMMIT WITH THE TOKEN IN HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//NEVER COMMIT WITH THE TOKEN IN HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//NEVER COMMIT WITH THE TOKEN IN HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//NEVER COMMIT WITH THE TOKEN IN HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
