@@ -1,4 +1,4 @@
 {
   "prefix": "!",
-  "token": "Token, be sure not to commit it to git"
+  "token": "Token, don't ever commit to git",
 }
