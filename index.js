@@ -23,7 +23,7 @@ client.on('ready', () => {
   console.log('Ready!');
 });
 
-//reads all messages
+//Triggered on every new message
 client.on('message', message => {
   //Ignores messages sent by bot or lacking a prefix
   if(!message.content.startsWith(prefix) || message.author.bot) return;
@@ -92,6 +92,30 @@ client.on('message', message => {
     console.error(error);
     message.reply('there was an error trying to execute that command!');
   }
+});
+
+//Triggered on every new server member
+client.on('guildMemberAdd', member => {
+  const channel = member.guild.channels.find(ch => ch.name === 'welcome');
+  const serverWelcome = `***Welcome to the server, @${member}***\nPlease take a second to ` +
+                        `check out #introduce-yourself, then follow suit! The format is pinned ` +
+                        `(to look at pins use that pushpin button up top)`;
+  const dmWelcome = `Hey @${member}, we really hope you enjoy the Discord server. There are ` +
+                    `plenty of channels to check out, just make sure to read the rules.\n` +
+                    `By the way, I'm an ongoing project. Type \`!help\` to check out what I have ` +
+                    `to offer. If you're interested in working on the bot, let your chapter president ` +
+                    `know!`;
+
+  if(!channel){
+    console.log('No welcome channel set, index.js');
+    return;
+  }
+  channel.send(serverWelcome);
+  member.send(dmWelcome, {split: true})
+    .catch(error => {
+      console.error(`Could not send help DM to ${member}.\n`, error);
+      channel.send(`It seems like I can't DM you @${member}! Do you have DMs disabled?`);
+    })
 });
 
 //gets the token from config, logs bot into Discord
