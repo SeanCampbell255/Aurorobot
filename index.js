@@ -23,6 +23,8 @@ client.on('ready', () => {
   console.log('Ready!');
 });
 
+//Starts check-events.js
+
 //Triggered on every new message
 client.on('message', message => {
   //Ignores messages sent by bot or lacking a prefix
