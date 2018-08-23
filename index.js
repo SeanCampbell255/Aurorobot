@@ -20,10 +20,9 @@ const cooldowns = new Discord.Collection();
 
 //logs to console when the bot is up
 client.on('ready', () => {
+  bot.user.setGame('!help');
   console.log('Ready!');
 });
-
-//Starts check-events.js
 
 //Triggered on every new message
 client.on('message', message => {
