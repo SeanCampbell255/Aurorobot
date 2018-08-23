@@ -20,7 +20,7 @@ const cooldowns = new Discord.Collection();
 
 //logs to console when the bot is up
 client.on('ready', () => {
-  bot.user.setGame('!help');
+  client.user.setActivity('!help');
   console.log('Ready!');
 });
 
