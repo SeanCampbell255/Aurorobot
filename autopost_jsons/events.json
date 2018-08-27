@@ -1,0 +1,21 @@
+{
+  "Sheet1": {
+    "Title1": [
+      "[message]",
+      "[channel] no '#'",
+      "repeat method [weekly",
+      "specified]",
+      "first date/time [DD/MM/YY HH:MM]",
+      "(only if repeating) other date/time [same format]"
+    ],
+    "Title2": [
+      "Title1",
+      "Description1",
+      "location1",
+      "date1",
+      "time start1",
+      "time end1",
+      "post time1"
+    ]
+  }
+}

@@ -1,5 +1,6 @@
 const fs = require('fs');
 const Discord = require('discord.js');
+const autoposter = require('./autoposter.js');
 
 //require config file
 const {prefix, token} = require('./config.json');
@@ -21,6 +22,7 @@ const cooldowns = new Discord.Collection();
 //logs to console when the bot is up
 client.on('ready', () => {
   client.user.setActivity('!help');
+  autoposter.run();
   console.log('Ready!');
 });
 
