@@ -1,0 +1,23 @@
+=Info I need from the JSON=
+-message to be posted
+-channel to post in
+-repeat method (weekly, multiple dates)
+ +if weekly
+  =Initial date/time (specific format)
+ +if multiple
+  =date/time
+  =date/time
+  =etc.
+
+Info I need from user=
+-Server role (check if admin, employee, officer, project lead)
+-User nickname (append "message stored by [nick]")
+
+=pipeline=
+Sheets -> JSON -> Discord webhosting -> bot folder -> object in queue(maybe linked list?)
+
+=Initial organizing=
+-make a single object for every individual post
+-store these objects in a data structure to be processed in order
+-set timeout for next post time
+-post
