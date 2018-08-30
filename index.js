@@ -100,13 +100,13 @@ client.on('message', message => {
 //Triggered on every new server member
 client.on('guildMemberAdd', member => {
   const channel = member.guild.channels.find(ch => ch.name === 'welcome');
-  const serverWelcome = `***Welcome to the server, @${member}***\nPlease take a second to ` +
+  const serverWelcome = `***Welcome to the server, ${member}***\nPlease take a second to ` +
                         `check out #introduce-yourself, then follow suit! The format is pinned ` +
                         `(to look at pins use that pushpin button up top)`;
   const dmWelcome = `Hey @${member}, we really hope you enjoy the Discord server. There are ` +
                     `plenty of channels to check out, just make sure to read the rules.\n` +
-                    `Also, **please change your nickname**(right click your username on the right while in the server)` +
-                    `to your real name so we know who we're talking to!\n`
+                    `Also, **please change your nickname**: right click your username on the right while in the server` +
+                    `to your real name so we know who we're talking to!\n` +
                     `By the way, I'm an ongoing project. Type \`!help\` to check out what I have ` +
                     `to offer. If you're interested in working on the bot, let your chapter president ` +
                     `know!`;

@@ -1,6 +1,6 @@
 {
   "Sheet1": {
-    "Title1": [
+    "Event1": [
       "[message]",
       "[channel] no '#'",
       "repeat method [weekly",
@@ -8,7 +8,7 @@
       "first date/time [DD/MM/YY HH:MM]",
       "(only if repeating) other date/time [same format]"
     ],
-    "Title2": [
+    "Event2": [
       "Title1",
       "Description1",
       "location1",

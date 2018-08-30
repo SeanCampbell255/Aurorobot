@@ -14,6 +14,5 @@ var posts = new Discord.Collection();
 const postFiles = fs.readdirSync('./autopost_jsons').filter(file => file.endsWith('.json'));
 
 function makePostObjs(file){
-    var jsonObj = JSON.parse(file);
-    console.log(jsonObj);
+
 }
