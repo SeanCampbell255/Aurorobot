@@ -14,7 +14,7 @@ Info I need from user=
 -User nickname (append "message stored by [nick]")
 
 =pipeline=
-Sheets -> JSON -> Discord webhosting -> bot folder -> object in queue(maybe linked list?)
+Sheets -> JSON -> Discord webhosting -> bot folder -> Read and post on runtime (calculate times)
 
 =Initial organizing=
 -make a single object for every individual post

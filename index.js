@@ -1,9 +1,11 @@
 const fs = require('fs');
 const Discord = require('discord.js');
-const autoposter = require('./autoposter.js');
+const autoposter = require('autoposter.js');
 
 //require config file
 const {prefix, token} = require('./config.json');
+//access multiple welcome messages
+const {aurora, ggj} = require('./welcomes.json');
 //starts new Discord client
 const client = new Discord.Client();
 
@@ -22,7 +24,7 @@ const cooldowns = new Discord.Collection();
 //logs to console when the bot is up
 client.on('ready', () => {
   client.user.setActivity('!help');
-  autoposter.run();
+  //autoposter.init();
   console.log('Ready!');
 });
 
@@ -99,28 +101,33 @@ client.on('message', message => {
 
 //Triggered on every new server member
 client.on('guildMemberAdd', member => {
-  const channel = member.guild.channels.find(ch => ch.name === 'welcome');
-  const serverWelcome = `***Welcome to the server, ${member}***\nPlease take a second to ` +
-                        `check out #introduce-yourself, then follow suit! The format is pinned ` +
-                        `(to look at pins use that pushpin button up top)`;
-  const dmWelcome = `Hey @${member}, we really hope you enjoy the Discord server. There are ` +
-                    `plenty of channels to check out, just make sure to read the rules.\n` +
-                    `Also, **please change your nickname**: right click your username on the right while in the server` +
-                    `to your real name so we know who we're talking to!\n` +
-                    `By the way, I'm an ongoing project. Type \`!help\` to check out what I have ` +
-                    `to offer. If you're interested in working on the bot, let your chapter president ` +
-                    `know!`;
+  var dmWelcome = ' ';
+  var channel;
 
-  if(!channel){
-    console.log('No welcome channel set, index.js');
-    return;
+  if(member.guild.name == "Aurora Game Development Club"){
+    channel = member.guild.channels.find(ch => ch.name === 'welcome');
+    const serverWelcome = `${member}` + aurora[0];
+    dmWelcome = aurora[1];
+
+    channel.send(serverWelcome, {split: true});
   }
-  channel.send(serverWelcome);
+  else if(member.guild.name == "GGJ at GSU"){
+    const userInfo = new Discord.Collection();
+    userInfo.set('Display Name', member.displayName);
+    userInfo.set('id', member.id);
+    userInfo.set('Joined At', member.joinedAt);
+    userInfo.set('User', member.user);
+    fs.writeFile(`GGJ Users/users.json`, JSON.stringify(userInfo.array()));
+
+    dmWelcome = ggj;
+    channel = member.guild.channels.find(ch => ch.name === 'important-info' );
+  }
+
   member.send(dmWelcome, {split: true})
     .catch(error => {
       console.error(`Could not send help DM to ${member}.\n`, error);
       channel.send(`It seems like I can't DM you @${member}! Do you have DMs disabled?`);
-    })
+    });
 });
 
 //gets the token from config, logs bot into Discord
