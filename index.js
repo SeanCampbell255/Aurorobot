@@ -1,6 +1,6 @@
 const fs = require('fs');
 const Discord = require('discord.js');
-const autoposter = require('autoposter.js');
+//const autoposter = require('autoposter.js');
 
 //require config file
 const {prefix, token} = require('./config.json');
@@ -55,12 +55,12 @@ client.on('message', message => {
   if(command.args && !args.length){
     let reply = `You didn't provide any arguments, ${message.author}!`;
 
-  //Displays proper syntax
-  if(command.usage){
-    reply += `\nThe proper usage would be: \`${prefix}${command.name} ${command.usage}\``;
-  }
+    //Displays proper syntax
+    if(command.usage){
+      reply += `\nThe proper usage would be: \`${prefix}${command.name} ${command.usage}\``;
+    }
 
-  return message.channel.send(reply);
+    return message.channel.send(reply);
   }
 
   //COOLDOWN FOR COMMANDS
@@ -90,13 +90,13 @@ client.on('message', message => {
   }
 
   //Executes command, error message for unexpected error
-  try{
+  //try{
     command.execute(message, args);
-  }
-  catch (error) {
-    console.error(error);
-    message.reply('there was an error trying to execute that command!');
-  }
+  // }
+  // catch (error) {
+  //   console.error(error);
+  //   message.reply('there was an error trying to execute that command!');
+  // }
 });
 
 //Triggered on every new server member
@@ -117,7 +117,7 @@ client.on('guildMemberAdd', member => {
     userInfo.set('id', member.id);
     userInfo.set('Joined At', member.joinedAt);
     userInfo.set('User', member.user);
-    fs.writeFile(`GGJ Users/users.json`, JSON.stringify(userInfo.array()));
+    fs.writeFile(`GGJ Users/${member.displayName}.json`, JSON.stringify(userInfo.array()));
 
     dmWelcome = ggj;
     channel = member.guild.channels.find(ch => ch.name === 'important-info' );

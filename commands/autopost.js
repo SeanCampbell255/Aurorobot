@@ -1,6 +1,6 @@
 const http = require('https');
 const fs = require('fs');
-const autoposter = require('autoposter.js');
+//const autoposter = require('autoposter.js');
 
 module.exports = {
   name: 'autopost',
