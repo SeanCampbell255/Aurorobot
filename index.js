@@ -102,24 +102,11 @@ client.on('guildMemberAdd', member => {
   var dmWelcome = ' ';
   var channel;
 
-  if(member.guild.name == "Aurora Game Development Club"){
-    channel = member.guild.channels.find(ch => ch.name === 'welcome');
-    const serverWelcome = `${member}` + aurora[0];
-    dmWelcome = aurora[1];
+  channel = member.guild.channels.find(ch => ch.name === 'welcome');
+  const serverWelcome = `${member}` + aurora[0];
+  dmWelcome = aurora[1];
 
-    channel.send(serverWelcome, {split: true});
-  }
-  else if(member.guild.name == "GGJ at GSU"){
-    const userInfo = new Discord.Collection();
-    userInfo.set('Display Name', member.displayName);
-    userInfo.set('id', member.id);
-    userInfo.set('Joined At', member.joinedAt);
-    userInfo.set('User', member.user);
-    fs.writeFile(`GGJ Users/${member.displayName}.json`, JSON.stringify(userInfo.array()));
-
-    dmWelcome = ggj;
-    channel = member.guild.channels.find(ch => ch.name === 'important-info' );
-  }
+  channel.send(serverWelcome, {split: true});
 
   member.send(dmWelcome, {split: true})
     .catch(error => {
